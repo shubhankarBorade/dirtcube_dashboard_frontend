@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {CardList} from './components/card-list/card-list.component';
 import './App.css';
 import axios from "axios";
+import {Route, Switch} from 'react-router-dom';
+
 
 // import {Card} from "./components/card/card.component";
 
@@ -10,7 +12,8 @@ class App extends Component {
       super(props);
       this.state = {
          files: [],
-         imagesPreviewUrls: []
+         imagesPreviewUrls: [],
+         text: ''
       };
       // this.handleImageChange = this.handleImageChange.bind(this);
       // this._handleSubmit = this._handleSubmit.bind(this);
@@ -32,11 +35,13 @@ class App extends Component {
           .then(response => {
              console.log(response)
           });
-      // fetch("http://localhost:4000/test-data", {
-      //    method: "post",
-      //    body: formData
-      // }).then(res => console.log(res)).catch(console.error);
 
+   }
+
+   handleInput = (e) => {
+      this.setState({text: e.target.value}, () => {
+         console.log(this.state.text);
+      });
    }
 
    handleImageChange = (e) => {
@@ -56,14 +61,30 @@ class App extends Component {
       });
    }
 
+   background = () => (
+       <form onSubmit={this._handleSubmit}>
+          <input type="file" accept='image/*' onChange={this.handleImageChange} multiple/>
+          <button type="submit" onClick={this._handleSubmit}>Upload Image</button>
+          <CardList imagesPreviewUrls={this.state.imagesPreviewUrls}/>
+       </form>
+   )
+
+   sticker = () => (
+       <form onSubmit={this._handleSubmit}>
+          <input type="file" accept='image/*' onChange={this.handleImageChange} multiple/>
+          <button type="submit" onClick={this._handleSubmit}>Upload Image</button>
+          <CardList imagesPreviewUrls={this.state.imagesPreviewUrls}/>
+       </form>
+   )
+
+
    render() {
       return (
           <div>
-             <form onSubmit={this._handleSubmit}>
-                <input type="file" accept='image/*' onChange={this.handleImageChange} multiple/>
-                <button type="submit" onClick={this._handleSubmit}>Upload Image</button>
-                <CardList imagesPreviewUrls={this.state.imagesPreviewUrls}/>
-             </form>
+             <Switch>
+                <Route exact path='/background' component={this.background}/>
+                <Route exact path='/sticker' component={this.sticker}/>
+             </Switch>
           </div>
       )
    }
