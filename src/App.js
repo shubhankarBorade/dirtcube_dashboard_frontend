@@ -101,7 +101,7 @@ class App extends Component {
              <Switch>
                 <Route exact path='/background' component={this.background}/>
                 <Route exact path='/sticker' component={this.sticker}/>
-                <Route exact path='/sign-up' component={SignUp}/>
+                <Route exact path='/signup' component={SignUp}/>
              </Switch>
           </div>
       )
