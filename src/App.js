@@ -34,9 +34,9 @@ class App extends Component {
          formData.append('image', file);
          formData.append("collection", this.state.collectionNames.indexOf(this.state.files[file]))
       });
-      for (const [key, value] of formData) {
-         console.log("key", key, "value", value);
-      }
+      // for (const [key, value] of formData) {
+      //    console.log("key", key, "value", value);
+      // }
       console.log("files", this.state.files);
       console.log("formData", formData);
       axios.post('http://10.0.1.6:4000/background', formData)

@@ -3,10 +3,10 @@ import React from "react";
 import "./form-input.styles.css";
 import "../signup/signup.styles.css";
 
-const FormInput = ({handleChange, value, ...otherProps}) => (
+const FormInput = ({handleChange, ...otherProps}) => (
    <div>
       <form className="text-box" id="form1">
-         <input className="placeholder-text" type="text" value={value} name="fullName" placeholder="full name" onChange={handleChange} {...otherProps}/>
+         <input className="placeholder-text" type="text" name="fullName" placeholder="full name" onChange={handleChange}/>
          <input className="placeholder-text" type="text" name = "username" placeholder="Username" onChange={handleChange} {...otherProps}/>
          <input className="placeholder-text" type="email" name = "email" placeholder="email" onChange={handleChange} {...otherProps}/>
          <input className="placeholder-text" type="password" name="password" placeholder="password" onChange={handleChange} {...otherProps}/>
