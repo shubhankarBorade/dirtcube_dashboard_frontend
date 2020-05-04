@@ -5,7 +5,7 @@ import Logo from "../../Dirtcube_Logo_512.png";
 
 const BlackLogoScreen = () => (
   <div>
-     <img src={Logo}alt="logo" className="logo"/>
+     <img src={Logo} alt="logo"/>
   </div>  
 );
 
