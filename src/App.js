@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import SignUpPage from "./pages/sign-up/sign-up.pages";
 import OverviewPage from "./pages/overview-page/overview.page";
+import DataPage from "./pages/data-page/data.page";
 
 
 // import {Card} from "./components/card/card.component";
@@ -17,6 +18,7 @@ class App extends Component {
                     <Switch>
                         <Route exact path='/sign-up' component={SignUpPage}/>
                         <Route exact path='/overview' component={OverviewPage}/>
+                        <Route exact path='/data' component={DataPage}/>
                     </Switch>
                 </Router>
             </div>

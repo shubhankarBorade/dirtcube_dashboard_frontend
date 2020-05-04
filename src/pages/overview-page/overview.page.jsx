@@ -15,8 +15,8 @@ function OverviewPage() {
         <div className='row fullHeight'>
             <div className='col-2 main-menu'>
                 {
-                    menuItems.map(id => (
-                        <MenuItems menuItem={id}/>
+                    menuItems.map(item => (
+                        <MenuItems menuItem={item}/>
                     ))
                 }
             </div>
