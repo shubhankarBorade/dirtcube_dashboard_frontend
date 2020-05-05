@@ -1,33 +1,11 @@
-import React from 'react';
-import './overview.page.css'
-import MenuItems from "../../components/main-menu-component/main-menu.component";
+import React from 'react'
 
-const menuItems = [
-    'Overview',
-    'Data',
-    'Users',
-    'Inbox',
-    'Setting'
-];
-
-function OverviewPage() {
+function Overview() {
     return (
-        <div className='row fullHeight'>
-            <div className='col-2 main-menu'>
-                {
-                    menuItems.map(item => (
-                        <MenuItems menuItem={item}/>
-                    ))
-                }
-            </div>
-            <div className='col-10 canvas'>
-                <h3>Hello World</h3>
-                <h3>Hello World</h3>
-                <h3>Hello World</h3>
-                <h3>Hello World</h3>
-            </div>
+        <div>
+            <h1>This is overview page</h1>
         </div>
     )
 }
 
-export default OverviewPage;
+export default Overview;

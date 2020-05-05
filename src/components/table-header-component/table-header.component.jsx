@@ -6,7 +6,7 @@ function TableHeader({columnNames = []}) {
         <tr>
             {
                 columnNames.map(columnName => (
-                    <th scope="col">{columnName}</th>
+                    <th key={columnName} scope="col">{columnName}</th>
                 ))
             }
         </tr>

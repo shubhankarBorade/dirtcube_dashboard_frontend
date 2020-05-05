@@ -1,16 +1,20 @@
 import React from 'react';
 
-function TableRow({id, values = []}) {
+function TableRow({columnNames, values}) {
     return (
         <tbody>
-        <tr>
-            <th scope="row">{id}</th>
-            {
-                values.map(value => (
-                    <td>{value}</td>
-                ))
-            }
-        </tr>
+        {
+            values.map(value => (
+                <tr key={value.id}>
+                    {
+                        columnNames.map(column => (
+                            <td key={value[column]}>{value[column]}</td>
+
+                        ))
+                    }
+                </tr>
+            ))
+        }
         </tbody>
     )
 }

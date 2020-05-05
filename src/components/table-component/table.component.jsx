@@ -11,12 +11,12 @@ import TableRow from "../table-row-component/table-row.component";
  * @returns {*}
  * @constructor
  */
-function TableComponent({tableClass = 'table', columnNames, id, values}) {
+function TableComponent({tableClass = 'table', columnNames, ...otherProps}) {
     return (
         <div className='table-responsive'>
             <table className={tableClass}>
                 <TableHeader columnNames={columnNames}/>
-                <TableRow id={id} values={values}/>
+                <TableRow columnNames={columnNames} {...otherProps}/>
             </table>
         </div>
     )

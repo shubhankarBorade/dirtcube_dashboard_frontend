@@ -1,12 +1,12 @@
-import React from 'react';
-import './main-menu.component.css';
+import React from 'react'
+import MenuItems from "../main-menu-item-component/main-menu-item.component";
 
-function MenuItems({menuItem}) {
+function MainMenu({menuItems, handleChange}) {
     return (
-        <div>
-            <h3>{menuItem}</h3>
-        </div>
+        menuItems.map(item => (
+            <MenuItems key={item} menuItem={item} setMenu={handleChange}/>
+        ))
     )
 }
 
-export default MenuItems;
+export default MainMenu
