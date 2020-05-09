@@ -1,19 +1,18 @@
 import React from 'react';
+import DropdownItem from "../dropdown-item-component/dropdown-item.component";
 
-function Dropdown({items}) {
+// import BtnComponent from "../btn-component/btn.component";
+
+function Dropdown({items, activeComponent, updateCurrentItem}) {
     return (
         <div className="btn-group">
+            {/*<BtnComponent type='button' classes='btn-info dropdown-toggle' text='Data' data-toggle="dropdown" aria-haspopup="true"*/}
+            {/*              aria-expanded="false"/>*/}
             <button type="button" className="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                 Data
             </button>
-            <div className="dropdown-menu">
-                {
-                    items.map((item, idx) => (
-                        <a key={idx} className='dropdown-item' href="/">{item}</a>
-                    ))
-                }
-            </div>
+            <DropdownItem items={items} activeComponent={activeComponent} updateCurrentItem={updateCurrentItem}/>
         </div>
     )
 }

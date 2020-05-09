@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Overview() {
+function OverviewPage() {
     return (
         <div>
             <h1>This is overview page</h1>
@@ -8,4 +8,4 @@ function Overview() {
     )
 }
 
-export default Overview;
+export default OverviewPage;

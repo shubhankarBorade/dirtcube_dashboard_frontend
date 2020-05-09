@@ -5,8 +5,8 @@ function TableHeader({columnNames = []}) {
         <thead>
         <tr>
             {
-                columnNames.map(columnName => (
-                    <th key={columnName} scope="col">{columnName}</th>
+                columnNames.map((columnName, index) => (
+                    <th key={index} scope="col">{columnName}</th>
                 ))
             }
         </tr>

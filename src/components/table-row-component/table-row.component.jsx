@@ -4,12 +4,12 @@ function TableRow({columnNames, values}) {
     return (
         <tbody>
         {
-            values.map(value => (
-                <tr key={value.id}>
+            values.map((value, index) => (
+                <tr key={index}>
+                    {/*<th scope="row">{value.id}</th>*/}
                     {
-                        columnNames.map(column => (
-                            <td key={value[column]}>{value[column]}</td>
-
+                        columnNames.map((column, index) => (
+                            <td key={index}>{value[column]}</td>
                         ))
                     }
                 </tr>

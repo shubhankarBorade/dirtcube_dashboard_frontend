@@ -1,10 +1,9 @@
 import React from 'react'
 
-function BtnComponent({primaryBtn, btnText, onClickFunction}) {
-    const btnClassname = `btn ${primaryBtn}`
+function BtnComponent({type, classes, text, onClickFunction, ...otherProps}) {
     return (
         <div>
-            <button type="submit" className={btnClassname} onClick={onClickFunction}>{btnText}</button>
+            <button type={type} className={`btn ${classes}`} onClick={onClickFunction} {...otherProps}>{text}</button>
         </div>
     )
 }

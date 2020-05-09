@@ -1,30 +1,40 @@
 import React, {useState, useEffect} from 'react';
-import TableComponent from "../../components/table-component/table.component";
-import Dropdown from "../../components/dropdown-component/dropdown.component";
+import DataDisplay from "../../components/data-display-component/data-display.component";
+import photos from "../../data/photos.data";
 
-import userData from "../../data/user.data";
-import dataDropdownItem from "../../data/data-dropdown-item.data";
+// import userData from "../../data/user.data";
 
 function DataPage() {
-    // const [entity, setEntity] = useState('user');
-    // const [columnNames, setColumnName] = useState(getKeys(userData[0]))
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [columnNames, setColumnNames] = useState([])
+    const [currentData, setCurrentData] = useState([]);
 
-    const columnName = getKeys(userData[0])
+    useEffect(() => {
+        fetch('https://jsonplaceholder.typicode.com/photos')
+            .then(res => res.json())
+            .then((result) => {
+                setIsLoaded(true);
+                console.log('results', result);
+                setColumnNames(photos)
+                setCurrentData(result);
+            }, (error) => {
+                setIsLoaded(false);
+                setError(error);
+            })
+    }, [])
 
-    function getKeys(object) {
-        return Object.keys(object)
+    if (!isLoaded) {
+        return <div><h1>Loading....</h1></div>
+    } else if (error) {
+        return <div>{error}</div>
+    } else {
+        return (
+            <div>
+                <DataDisplay columnNames={columnNames} usersData={currentData}/>
+            </div>
+        )
     }
-
-    return (
-        <div>
-            <div>
-                <Dropdown items={dataDropdownItem}/>
-            </div>
-            <div>
-                <TableComponent columnNames={columnName} values={userData}/>
-            </div>
-        </div>
-    )
 }
 
 export default DataPage;

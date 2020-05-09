@@ -22,7 +22,7 @@ function SignUp() {
                                                 placeholder={value.placeholder} type={value.type}/>
                     ))
                 }
-                <BtnComponent btnText='Sign up' primaryBtn='btn-primary' onClick={makeSignUpAPICall}/>
+                <BtnComponent type='submit' classes='btn-primary' text='Sign up' onClick={makeSignUpAPICall}/>
             </form>
         </div>
 
